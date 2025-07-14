@@ -4,11 +4,9 @@ import { useState } from 'react';
 import FileUpload from './components/FileUpload';
 
 export default function Home() {
-  const [leads, setLeads] = useState<any[]>([]);
-  const [scoredLeads, setScoredLeads] = useState<any[]>([]);
+  const [scoredLeads, setScoredLeads] = useState<Record<string, unknown>[]>([]);
 
-  const handleUpload = async (data: any[]) => {
-    setLeads(data);
+  const handleUpload = async (data: Record<string, unknown>[]) => {
     const scored = await Promise.all(
       data.map(async (lead) => {
         const res = await fetch('/api/score', {

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Papa from 'papaparse';
 
-export default function FileUpload({ onData }: { onData: (data: any[]) => void }) {
+export default function FileUpload({ onData }: { onData: (data: Record<string, unknown>[]) => void }) {
   const [fileName, setFileName] = useState('');
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +17,7 @@ export default function FileUpload({ onData }: { onData: (data: any[]) => void }
       skipEmptyLines: true,
       complete: (results) => {
         console.log('Parsed results:', results.data);
-        onData(results.data);
+        onData(results.data as Record<string, unknown>[]);
       },
     });
   };

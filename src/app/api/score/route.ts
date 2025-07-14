@@ -1,24 +1,25 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
+// import OpenAI from "openai";
 
-const openai = new OpenAI();
+// const openai = new OpenAI();
 
 export async function POST(req: Request) {
-  const { lead } = await req.json();
+  console.log("req", req);
+//   const { lead } = await req.json();
 
   try {
-    const prompt = `
-You are an expert sales qualification assistant.
-Score the following lead from 1-10 based on relevance to an AI SaaS product and provide reasoning.
+//     const prompt = `
+// You are an expert sales qualification assistant.
+// Score the following lead from 1-10 based on relevance to an AI SaaS product and provide reasoning.
 
-Lead Details:
-Name: ${lead.Name}
-Company: ${lead.Company}
-Job Title: ${lead["Job Title"]}
-Message: ${lead.Message}
+// Lead Details:
+// Name: ${lead.Name}
+// Company: ${lead.Company}
+// Job Title: ${lead["Job Title"]}
+// Message: ${lead.Message}
 
-Respond in JSON with "score" (1-10) and "reason".
-`;
+// Respond in JSON with "score" (1-10) and "reason".
+// `;
 
     // const completion = await openai.chat.completions.create({
     //   model: "gpt-4o",
